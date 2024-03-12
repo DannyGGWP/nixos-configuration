@@ -110,6 +110,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
+      github-desktop
     #  thunderbird
     ];
   };
