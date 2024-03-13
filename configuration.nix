@@ -126,6 +126,10 @@
     vscode
     git
     neofetch
+    libstdcxx5
+    gnumake
+    libgcc
+    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
