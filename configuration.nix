@@ -30,14 +30,14 @@
     "intel_lpss_pci"
   ];
 
-  systemd.services.iptsd = {
-    description = "IPTSD";
-    script = "${pkgs.iptsd}/bin/iptsd ''$(${pkgs.iptsd}/bin/iptsd-find-hidraw)";
-    serviceConfig.Restart = "always";
-    wantedBy = [
-      "multi-user.target"
-    ];
-  };
+  # systemd.services.iptsd = {
+  #   description = "IPTSD";
+  #   script = "${pkgs.iptsd}/bin/iptsd ''$(${pkgs.iptsd}/bin/iptsd-find-hidraw)";
+  #   serviceConfig.Restart = "always";
+  #   wantedBy = [
+  #     "multi-user.target"
+  #   ];
+  # };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -126,10 +126,9 @@
     vscode
     git
     neofetch
-    libstdcxx5
-    gnumake
-    libgcc
     python3
+    nix-ld
+    jdk8
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -146,6 +145,7 @@
     #add any missing dynamic libraries for unpackaged 
     #programs here, NOT in environment.systemPakages
     libz
+    libstdcxx5
   ];  
   # List services that you want to enable:
 
@@ -165,5 +165,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
 }
